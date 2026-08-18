@@ -3,11 +3,36 @@ import { Section } from "./Section";
 import { Briefcase } from "lucide-react";
 
 const items = [
-  { org: "Happieloop Technology", role: "Cybersecurity Intern (Remote)", year: "Feb – Apr 2026", desc: "Network security analysis, vulnerability assessment, and continuous security monitoring." },
-  { org: "Maincrafts Technology", role: "Java Full-Stack Intern (Remote)", year: "Feb – Mar 2026", desc: "Built production-grade full-stack Java applications. Awarded a Letter of Recommendation for performance." },
-  { org: "Kasper Infotech", role: "Frontend Developer Intern (Remote)", year: "Jun – Aug 2025", desc: "Enhanced user experience by implementing responsive, accessible design across the web platform." },
-  { org: "Navodita Infotech", role: "Cybersecurity Intern (Remote)", year: "May 2025", desc: "Collaborated with senior engineers on real-world threat detection and mitigation projects." },
-  { org: "EduSkills × AICTE", role: "AI in Cybersecurity Intern (10 weeks)", year: "2025", desc: "ML for cyber, IDS/IPS, SOAR, EDR/XDR, UBA, and DFIR fundamentals." },
+  {
+    org: "Happieloop Technology",
+    role: "Cybersecurity Intern (Remote)",
+    year: "Feb – Apr 2026",
+    desc: "Worked on network security analysis, vulnerability assessment, and security monitoring.",
+  },
+  {
+    org: "Maincrafts Technology",
+    role: "Java Full-Stack Intern (Remote)",
+    year: "Feb – Mar 2026",
+    desc: "Developed full-stack Java applications and received a Letter of Recommendation for performance.",
+  },
+  {
+    org: "Kasper Infotech",
+    role: "Frontend Developer (Remote)",
+    year: "Jun – Aug 2025",
+    desc: "Worked on frontend development and improved user experience through responsive web design.",
+  },
+  {
+    org: "Navodita Infotech",
+    role: "Cybersecurity Intern (Remote)",
+    year: "May 2025",
+    desc: "Collaborated on real-world threat detection and mitigation projects while gaining practical cybersecurity experience.",
+  },
+  {
+    org: "EduSkills × AICTE",
+    role: "AI in Cybersecurity Intern",
+    year: "2025 · 10 weeks",
+    desc: "Built foundations in ML for cybersecurity, IDS/IPS, SOAR, EDR/XDR, UBA, and DFIR concepts.",
+  },
 ];
 
 export function Experience() {
@@ -18,7 +43,7 @@ export function Experience() {
         <div className="space-y-12">
           {items.map((it, i) => (
             <motion.div
-              key={it.org}
+              key={`${it.org}-${it.role}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
