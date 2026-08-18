@@ -7,10 +7,10 @@ import { keyTick, hackBurst, clickTick, successChime } from "@/lib/hackSound";
 type Line = { kind: "in" | "out" | "sys" | "ok" | "err"; text: string };
 
 const BOOT: Line[] = [
-  { kind: "sys", text: "BlackArch Linux 2026.04 · kernel 6.9.2-hardened" },
-  { kind: "sys", text: "Loading modules: [crypto] [tls] [ebpf] [wireguard] ✓" },
+  { kind: "sys", text: "Cybersecurity workspace online · secure portfolio channel" },
+  { kind: "sys", text: "Loading modules: [security] [ai/ml] [full-stack] [blockchain] ✓" },
   { kind: "sys", text: "Establishing secure session @ neeraj@portfolio:~$" },
-  { kind: "ok",  text: "Session ready. Type `help` to see available commands." },
+  { kind: "ok", text: "Session ready. Type `help` to see available commands." },
 ];
 
 const ASCII = String.raw`
@@ -49,7 +49,6 @@ export function Hero() {
   const inputRef = useRef<HTMLInputElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Boot animation
   useEffect(() => {
     let i = 0;
     const t = setInterval(() => {
@@ -81,7 +80,7 @@ export function Hero() {
     const [c, ...args] = cmd.split(/\s+/);
     const lc = c.toLowerCase();
     if (lc === "sudo" && args[0] === "hack") hackBurst();
-    else if (["clear","cls"].includes(lc)) clickTick();
+    else if (["clear", "cls"].includes(lc)) clickTick();
     else successChime();
 
     switch (lc) {
@@ -91,32 +90,35 @@ export function Hero() {
       case "whoami":
         print([
           { kind: "out", text: "neeraj_upadhayay :: cybersecurity_engineer" },
-          { kind: "out", text: "role  : ethical_hacker · full-stack · ai/ml · blockchain" },
+          { kind: "out", text: "role  : ethical_hacking · full-stack · ai/ml · blockchain" },
           { kind: "out", text: "edu   : IILM University · B.Tech CSE (Cyber Sec)" },
-          { kind: "out", text: "stack : python · ts · solidity · tensorflow · linux" },
+          { kind: "out", text: "stack : python · typescript · solidity · react · linux" },
         ]);
         break;
       case "skills":
         print([
-          { kind: "out", text: "[security]  pentest · osint · soc · burp · nmap · metasploit · wireshark" },
-          { kind: "out", text: "[ai/ml]     tensorflow · pytorch · rag · vector_db · gemini · openai" },
-          { kind: "out", text: "[blockchain] solidity · hardhat · ethers · web3 · ipfs · audit" },
-          { kind: "out", text: "[fullstack] react · ts · vite · node · postgres · supabase · tailwind" },
-          { kind: "out", text: "[devops]    docker · k8s · github_actions · cloudflare · aws" },
+          { kind: "out", text: "[security]  pentest · osint · soc · burp · nmap · wireshark" },
+          { kind: "out", text: "[ai/ml]     tensorflow · pytorch · rag · vector db · gemini · openai" },
+          { kind: "out", text: "[blockchain] solidity · hardhat · ethers.js · web3 · ipfs" },
+          { kind: "out", text: "[fullstack] react · typescript · vite · node.js · postgres · supabase · tailwind" },
+          { kind: "out", text: "[backend]   python · fastapi · sql · rest apis · websockets" },
+          { kind: "out", text: "[devops]    docker · github actions · vercel · netlify · render · cloud tooling" },
         ]);
         break;
       case "projects":
         print([
-          { kind: "out", text: "01  cyber_guard          ai firewall × web3 (97.8% acc)" },
-          { kind: "out", text: "02  aegisai_sentinel     autonomous ai soc for smb" },
-          { kind: "out", text: "03  case_compass         rag + citations for enterprise" },
-          { kind: "out", text: "04  blockchain_suite     solidity audit + on-chain logs" },
-          { kind: "out", text: "05  colosion             ai collision avoidance pwa" },
-          { kind: "out", text: "06  bug_bounty_recon     offensive recon report" },
-          { kind: "out", text: "07  circuverse_ai        ai for circular economy" },
-          { kind: "out", text: "08  time_scheduler_ai    gemini-powered scheduler" },
-          { kind: "out", text: "09  debt_recovery_ai     enterprise dca platform" },
-          { kind: "out", text: "10  sarva_os             custom security os" },
+          { kind: "out", text: "01  sarva_firewall          ai firewall · fastapi · supabase" },
+          { kind: "out", text: "02  aegisai_sentinel        autonomous ai soc" },
+          { kind: "out", text: "03  collisionguard_pro      ai safety pwa" },
+          { kind: "out", text: "04  debt_recovery_ai        enterprise ai/analytics" },
+          { kind: "out", text: "05  circuverse_ai           ai for sustainability" },
+          { kind: "out", text: "06  time_scheduler_ai       gemini-powered optimization" },
+          { kind: "out", text: "07  automated_vuln_scanner  appsec · risk prioritization" },
+          { kind: "out", text: "08  profile_intelligence    osint · intelligence" },
+          { kind: "out", text: "09  honeypot_network        threat intelligence" },
+          { kind: "out", text: "10  monitor_the_situation   real-time threat dashboard" },
+          { kind: "out", text: "11  worldintel               ai intelligence platform" },
+          { kind: "out", text: "12  smart_bharat             genai · civic tech" },
         ]);
         break;
       case "social":
@@ -137,17 +139,15 @@ export function Hero() {
         window.location.href = "/Neeraj_Upadhayay.pdf";
         break;
       case "uname":
-        print([{ kind: "out", text: "Linux blackarch 6.9.2-hardened #1 SMP PREEMPT_DYNAMIC x86_64 GNU/Linux" }]);
+        print([{ kind: "out", text: "Linux cybersecurity-workstation x86_64 · secure developer environment" }]);
         break;
       case "neofetch":
         print([
-          { kind: "out", text: "OS      : BlackArch Linux x86_64" },
+          { kind: "out", text: "OS      : Linux" },
           { kind: "out", text: "Host    : neeraj@portfolio" },
-          { kind: "out", text: "Kernel  : 6.9.2-hardened" },
-          { kind: "out", text: "Shell   : zsh 5.9 (oh-my-zsh)" },
-          { kind: "out", text: "DE      : i3-gaps · picom · polybar" },
-          { kind: "out", text: "Term    : alacritty · tmux" },
-          { kind: "out", text: "CPU     : Ryzen 7 · 16GB RAM · NVMe" },
+          { kind: "out", text: "Focus   : Cybersecurity · AI/ML · Full-Stack" },
+          { kind: "out", text: "Shell   : developer terminal" },
+          { kind: "out", text: "Tools   : Docker · Git · GitHub · Burp · Nmap · Wireshark" },
         ]);
         break;
       case "ls":
@@ -161,9 +161,9 @@ export function Hero() {
         if (args[0] === "hack") {
           print([
             { kind: "sys", text: "[sudo] password for neeraj: ********" },
-            { kind: "ok", text: "✓ payload signed · ✓ proxychains active · ✓ tor circuit built" },
-            { kind: "ok", text: "→ scanning targets… 1024/1024 ports complete" },
-            { kind: "ok", text: "→ deploying ai-firewall bypass… 100%" },
+            { kind: "ok", text: "✓ secure channel verified · ✓ defensive demo enabled" },
+            { kind: "ok", text: "→ loading project portfolio… 100%" },
+            { kind: "ok", text: "→ showcasing cybersecurity + AI + full-stack systems" },
             { kind: "ok", text: "✦ Access granted. Welcome, operator." },
           ]);
         } else {
@@ -214,193 +214,55 @@ export function Hero() {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-secondary/15 blur-3xl animate-flicker" />
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_1fr] gap-10 items-center w-full">
-        {/* Left: identity */}
         <div>
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/40 bg-accent/5 text-accent text-[11px] font-mono mb-6"
-          >
+          <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/40 bg-accent/5 text-accent text-[11px] font-mono mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            <Lock className="w-3 h-3" /> SECURE_CHANNEL · TLS 1.3 · IILM UNIVERSITY
+            <Lock className="w-3 h-3" /> SECURE_CHANNEL · IILM UNIVERSITY
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.15 }}
-            className="font-mono font-bold text-5xl md:text-7xl leading-[1.05] mb-6 tracking-tight"
-          >
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15 }} className="font-mono font-bold text-5xl md:text-7xl leading-[1.05] mb-6 tracking-tight">
             <span className="block text-foreground">&gt; neeraj_</span>
             <span className="block text-gradient-magic">upadhayay<span className="text-accent">.sh</span></span>
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.9 }}
-            className="text-base md:text-lg text-muted-foreground max-w-xl mb-6 font-mono"
-          >
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.9 }} className="text-base md:text-lg text-muted-foreground max-w-xl mb-6 font-mono">
             <span className="text-accent">// role:</span>{" "}
             <Typewriter
               className="text-foreground"
               words={[
                 "Cybersecurity Engineer",
-                "Ethical Hacker · OSCP track",
-                "AI/ML Researcher",
-                "Blockchain Auditor",
+                "Ethical Hacker",
+                "AI/ML Developer",
+                "Blockchain Security Builder",
                 "Full-Stack Developer",
-                "5× Hackathon Winner",
+                "Security Researcher",
               ]}
             />
             <br />
             <span className="text-foreground/85">
-              ship secure systems that don't break under load — fluent in
+              building secure, intelligent systems across
+              <span className="text-primary"> cybersecurity</span>,
               <span className="text-primary"> AI/ML</span>,
-              <span className="text-primary"> blockchain</span>,
-              <span className="text-primary"> full-stack</span>.
+              <span className="text-primary"> blockchain</span>, and
+              <span className="text-primary"> full-stack engineering</span>.
             </span>
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.75, duration: 0.7 }}
-            className="flex flex-wrap gap-2 mb-8"
-          >
-            {[
-              { icon: Shield, label: "ethical_hacker" },
-              { icon: Cpu, label: "ai_ml_engineer" },
-              { icon: Code2, label: "full_stack_dev" },
-              { icon: Terminal, label: "blackarch_user" },
-            ].map((b) => (
-              <span
-                key={b.label}
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-card border border-border text-xs font-mono text-foreground/80 hover:border-accent/60 transition-colors"
-              >
-                <b.icon className="w-3 h-3 text-accent" /> {b.label}
-              </span>
-            ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="flex flex-wrap gap-3"
-          >
-            <a
-              href="https://www.linkedin.com/in/neeraj-upadhayay-a0958a246/"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-primary text-primary-foreground font-mono text-sm hover:scale-[1.03] hover-lift glow-gold transition-transform"
-            >
-              <Linkedin className="w-4 h-4" /> ./connect.sh
-            </a>
-            <a
-              href="https://github.com/Neerajupadhayay2004"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md border border-accent/50 text-accent font-mono text-sm hover:bg-accent hover:text-accent-foreground transition-all"
-            >
-              <Github className="w-4 h-4" /> git://github
-            </a>
-            <a
-              href="/Neeraj_Upadhayay.pdf"
-              download
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md border border-secondary/60 text-foreground bg-secondary/15 font-mono text-sm hover:bg-secondary/30 transition-all"
-            >
-              <Download className="w-4 h-4" /> wget resume.pdf
-            </a>
-          </motion.div>
+          <div className="flex flex-wrap gap-3">
+            <a href="https://github.com/Neerajupadhayay2004" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-border hover:border-accent transition-colors font-mono text-sm"><Github className="w-4 h-4" /> GitHub</a>
+            <a href="https://linkedin.com/in/neeraj-upadhayay-a0958a246" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-border hover:border-accent transition-colors font-mono text-sm"><Linkedin className="w-4 h-4" /> LinkedIn</a>
+            <a href="/Neeraj_Upadhayay.pdf" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-accent text-accent-foreground font-mono text-sm"><Download className="w-4 h-4" /> Resume</a>
+          </div>
         </div>
 
-        {/* Right: interactive terminal */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, rotateY: 10 }}
-          animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="relative"
-          style={{ perspective: 1200 }}
-        >
-          <div className="absolute -inset-4 bg-gradient-to-br from-primary/25 to-secondary/25 rounded-2xl blur-2xl glow-pulse" />
-          <div
-            onClick={() => inputRef.current?.focus()}
-            className="relative rounded-xl bg-[oklch(0.09_0.02_160)] border border-primary/30 shadow-[var(--shadow-deep)] overflow-hidden scanlines cursor-text"
-          >
-            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-background/60">
-              <span className="w-3 h-3 rounded-full bg-destructive" />
-              <span className="w-3 h-3 rounded-full bg-primary" />
-              <span className="w-3 h-3 rounded-full bg-accent" />
-              <span className="ml-3 text-[11px] font-mono text-muted-foreground truncate">
-                root@blackarch: ~/portfolio · zsh
-              </span>
-              <span className="ml-auto text-[10px] font-mono text-accent/70">{nowStamp()}</span>
-            </div>
-
-            <div
-              ref={scrollRef}
-              className="font-mono text-[12.5px] md:text-sm p-4 md:p-5 h-[340px] md:h-[380px] overflow-y-auto custom-scroll leading-relaxed"
-            >
-              <pre className="text-primary text-[9px] md:text-[10px] leading-[1.15] mb-3 select-none">
-                {ASCII}
-              </pre>
-              {history.map((l, i) => (
-                l && (
-                  <div key={i} className="whitespace-pre-wrap break-words">
-                    {l.kind === "in" && (
-                      <span>
-                        <span className="text-accent">neeraj@blackarch</span>
-                        <span className="text-muted-foreground">:</span>
-                        <span className="text-primary">~/portfolio</span>
-                        <span className="text-muted-foreground">$ </span>
-                        <span className="text-foreground">{l.text}</span>
-                      </span>
-                    )}
-                    {l.kind === "out" && <span className="text-foreground/85">{l.text}</span>}
-                    {l.kind === "sys" && <span className="text-muted-foreground italic">{l.text}</span>}
-                    {l.kind === "ok"  && <span className="text-accent">{l.text}</span>}
-                    {l.kind === "err" && <span className="text-destructive">{l.text}</span>}
-                  </div>
-                )
-              ))}
-
-              {booted && (
-                <div className="flex items-center mt-1">
-                  <span className="text-accent">neeraj@blackarch</span>
-                  <span className="text-muted-foreground">:</span>
-                  <span className="text-primary">~/portfolio</span>
-                  <span className="text-muted-foreground">$&nbsp;</span>
-                  <input
-                    ref={inputRef}
-                    autoFocus
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    onKeyDown={onKey}
-                    spellCheck={false}
-                    autoComplete="off"
-                    className="flex-1 bg-transparent border-0 outline-none text-foreground caret-accent font-mono text-[12.5px] md:text-sm"
-                    aria-label="terminal input"
-                  />
-                  <span className="cursor-blink" />
-                </div>
-              )}
-            </div>
-
-            <div className="px-4 py-2 border-t border-border bg-background/40 flex flex-wrap gap-1.5">
-              {["help", "whoami", "skills", "projects", "sudo hack", "clear"].map((q) => (
-                <button
-                  key={q}
-                  onClick={() => { run(q); inputRef.current?.focus(); }}
-                  className="px-2 py-0.5 text-[10px] font-mono rounded border border-border text-muted-foreground hover:text-accent hover:border-accent/60 transition-colors"
-                >
-                  {q}
-                </button>
-              ))}
-            </div>
+        <div className="relative rounded-2xl border border-accent/20 bg-card/60 backdrop-blur-sm overflow-hidden shadow-2xl">
+          <div className="flex items-center justify-between px-4 py-2 border-b border-border font-mono text-[11px] text-muted-foreground"><span>neeraj@portfolio:~</span><span>{booted ? nowStamp() : "booting..."}</span></div>
+          <pre className="px-4 pt-4 text-[8px] md:text-[10px] text-accent overflow-x-auto">{ASCII}</pre>
+          <div ref={scrollRef} className="h-[360px] overflow-y-auto px-4 pb-4 font-mono text-xs space-y-1">
+            {history.map((line, i) => <div key={`${i}-${line.text}`} className={line.kind === "err" ? "text-destructive" : line.kind === "ok" ? "text-accent" : line.kind === "sys" ? "text-muted-foreground" : "text-foreground/80"}>{line.text}</div>)}
+            <div className="flex items-center gap-2 pt-2"><span className="text-primary">neeraj@portfolio:~$</span><input ref={inputRef} value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={onKey} disabled={!booted} placeholder={booted ? "type help" : "initializing..."} className="flex-1 bg-transparent outline-none text-foreground" /></div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
